@@ -34,7 +34,7 @@ usage(){
 # the default values
 workdir="workdir"
 auth_mode="database"
-components="trivy,notary,chartmuseum"
+components="trivy"
 admin_password="Harbor12345"
 case_repository="https://github.com/goharbor/harbor.git"
 case_branch="main"
@@ -328,7 +328,7 @@ make swagger_client 1>/dev/null # workaround https://github.com/robotframework/r
 robot -d ../result -v ip:\${core_service_endpoint} -v notaryServerEndpoint:\${notary_service_endpoint} \
   -v LOCAL_REGISTRY:${image_registry} -v LOCAL_REGISTRY_NAMESPACE:${image_repository_prefix} \
   -v DOCKER_USER:${dockerhub_username} -v DOCKER_PWD:${dockerhub_password} \
-  -v HARBOR_PASSWORD:${admin_password} -v http_get_ca:true \
+  -v HARBOR_ADMIN:admin -v HARBOR_PASSWORD:${admin_password} -v http_get_ca:true \
   -v DRAGONFLY_AUTH_TOKEN:${DRAGONFLY_AUTH_TOKEN} \
   -v ip1:\${replication_target_endpoint} -v OIDC_HOSTNAME: \
   -v ecr_ac_id:${ecr_access_id} -v ecr_ac_key:${ecr_access_secret} \
