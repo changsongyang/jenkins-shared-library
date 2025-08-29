@@ -55,8 +55,8 @@ def call(FreshInstallPipelineSettings settings) {
         catchError {
             publish_test_result("workdir/result")
         }
-        withCredentials([string(credentialsId: "slack-token", variable: "SLACK_TOKEN")]) {
-                send_to_slack("#tkp-project-harbor-harbor_nightly_results", env.SLACK_TOKEN, "vmware")
-        }
+        // withCredentials([string(credentialsId: "slack-token", variable: "SLACK_TOKEN")]) {
+        //         send_to_slack("#tkp-project-harbor-harbor_nightly_results", env.SLACK_TOKEN, "vmware")
+        // }
     }
 }
